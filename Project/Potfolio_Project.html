@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="Style.css">
     <script src="https://kit.fontawesome.com/0a14cb15b0.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="dark">
     <div id="header">
         <div class="container">
-            <nav>
-                <img src="Aditya Saini-logos_transparent.png"class="logo" alt="">
+            <nav class="navbar">
+                <img src="Aditya Saini-logos.jpeg"class="logo" alt="">
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About us</a></li>
@@ -27,6 +27,7 @@
         </div>
     </div>
     <!-- about  -->
+    <button id="themeButton" class="btn btn2">Toggle Theme</button>
     <div id="about">
         <div class="container-2">
             <div class="row">
@@ -126,7 +127,7 @@
             </div>
             <div class="work">
                 <img src="Online-Shoping.webp" alt="">
-                <div class="layer">
+                <div class="layer" >
                     <h3>Online Shopping App</h3>
                     <p> this app connects you yo the talented people
                         around Download it from play Store.</p>
@@ -134,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="btn"> See more</a>
+        <a href="#" class="btn btn2"> See more</a>
      </div>
 </div>
 
@@ -165,18 +166,9 @@
         </div>
     </div>
     <div class="copyright">
-        <p>copyright <i class="fa-regular fa-copyright"></i>Aditya. Made with <i class="fa-solid fa-heart"></i>by Aditya Saini</p>
+        <p>copyright <i class="fa-regular fa-copyright"></i>Aditya. Made with <i class="fa-solid fa-heart"></i> by Aditya Saini</p>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 
     <script>
         var tablinks=document.getElementsByClassName("tab-links");
@@ -191,7 +183,29 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
-        
+        const themeButton = document.getElementById('themeButton');
+        const BackImg = document.getElementById('header');
+        const body = document.body;
+        const subTitles = document.querySelectorAll('.sub-title');
+        themeButton.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+            if (body.classList.contains('dark')) {
+                BackImg.style.backgroundImage = "url('Background.jpg')";
+                } else {
+                    BackImg.style.backgroundImage = "url('Ligth-Background.jpg')";
+                }
+            // Change the color of .sub-title based on the current theme
+            subTitles.forEach(subTitle => {
+                if (body.classList.contains('dark')) {
+                    subTitle.style.color = 'white';
+                    navbar.style.color='white'; // Change to white text color
+                } else {
+                    subTitle.style.color = 'black';
+                    navbar.style.color='black'; // Change to black text color
+                }
+            });
+        });
     </script>
 </body>
 </html> 
